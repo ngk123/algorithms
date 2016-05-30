@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct comp
+{
+  int st;
+  int end;
+  int compno;
+  int flag;
+}comp;
+
+
+int main()
+{
+  int T,N,K;
+  comp og[100006],process[100006];
+  scanf("%d",&T);
+
+  while(T--)
+    {
+      scanf("%d%d",&N,&K);
+      for(i=0;i<N;i++)
+	{
+	  scanf("%d%d%d",&og[i].st,&og[i].end,&og[i].compno);
+	  og[i].flag=1;
+	}
+
+
+    }
+
+
+  return 0;
+}

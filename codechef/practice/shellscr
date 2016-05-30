@@ -1,0 +1,7 @@
+#!/bin/bash
+# My first script
+
+
+g++ CRZ04.cpp
+echo hi
+./a.out > out

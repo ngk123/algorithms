@@ -1,0 +1,80 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef pair<int,int> pii;
+int main()
+{
+	int n,arr[100],i,rank[100],j,ans=0;
+	vector<pii > unvi;
+	pii arr2[100];
+	cin >> n;
+	
+	for(i=0;i<n;i++)
+	{
+		cin >> arr[i];	
+	}
+	
+	for(i=0;i<n;i++)
+	{
+		cin >> rank[i];	
+	}
+	
+	int visited[100]={0};
+	ans=0;
+	for(i=0;i<n;i++)
+	{
+		if(rank[i]!=-1)
+		{		
+			arr2[rank[i]].first=arr[i];
+			arr2[rank[i]].second=i;			
+			visited[rank[i]]=1;
+		}						
+		else
+		{
+		unvi.push_back(pii(arr[i],i));		
+		//unvi.push_back(pii(arr2[i],i));		
+		}	
+	}
+	j=0;
+	for(i=0;i<n;i++)
+	{
+		if(visited[i]==0)
+		{
+			arr2[i].first=unvi[j].first;
+			arr2[i].second=unvi[j].second;
+			j++;
+		}
+	}	
+	cout << "heyyy\n";
+	for(j=n-2;j>=0;j--)
+	{
+		if(arr2[j].first<=arr2[j+1].first )
+		{
+			if(arr2[j].second<arr2[j+1].second)
+			{
+				ans=+(arr2[j+1].first-arr2[j].first);
+				arr2[j].first+=(arr2[j+1].first-arr2[j].first);
+				ans=+(arr2[j+1].first-arr2[j].first);
+
+			}
+			else
+			{
+				ans+=(arr2[j+1].first-arr2[j].first+1);
+				arr2[j].first+=(arr2[j+1].first-arr2[j].first+1);
+			}		
+		}
+			
+	}
+	
+	for(i=0;i<n;i++)
+	{
+		cout << arr2[i].first << " ";
+		
+	}
+	cout << endl;
+	cout << ans << endl;
+	
+	
+
+}
+
+

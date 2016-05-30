@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int mul(int b)
+{
+return(b*2);
+}
+
+int main()
+{
+char *str="C:\tc\bin\random";
+printf("%s",str);
+return 0;
+}
+

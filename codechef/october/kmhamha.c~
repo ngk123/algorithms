@@ -1,0 +1,15 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct pair{
+  int x;
+  int y;
+}pair;
+
+
+int main()
+{
+
+
+  return 0;
+}int T,N,x,y;

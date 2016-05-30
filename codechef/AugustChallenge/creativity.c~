@@ -1,0 +1,13 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+  int t,s1[1001],s2[1001]; 
+
+  scanf("%d",&t);
+
+
+
+  return 0;
+}

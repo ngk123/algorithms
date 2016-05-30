@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+  scanf("%d",&T);
+
+  while(T--)
+    {
+      ans=0;
+      scanf("%d",&N);
+      scanf("%d",&pre);
+      for(i=1;i<N;i++)
+	{
+	  scanf("%d",&cur);
+	  if(cur>pre)ans+=(cur-pre);
+
+
+	}
+
+
+
+    }
+
+
+  return 0;
+}

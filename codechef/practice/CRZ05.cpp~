@@ -1,0 +1,50 @@
+#include<cstdio>
+#include<cmath>
+
+int sumP(int k);
+int count(int k);
+
+int main()
+{
+
+ int T,ans,n,k,countp;
+ float a;
+ scanf("%d",&T);
+ 
+ while(T--)
+ {
+	scanf("%d%d",&n,&k);
+	ans=sumP(k);
+	countp=count(k);
+	if(n>countp)ans+=(n-countp);
+	a=ans;
+	printf("%0.6f\n",ans);
+ }
+ 
+ return 0;
+}
+
+
+int sumP(int k)
+{
+int temp,i;
+temp=sqrt(k);
+
+	for(i=temp;i>=1;i--)
+	{
+		if(k%i==0 && i!=1) return sumP(i)+sumP(k/i);
+		else if(k%i==0 && i==1) return k;	
+	}
+}
+
+int count(int k)
+{
+int temp,i;
+temp=sqrt(k);
+
+	for(i=temp;i>=1;i--)
+	{
+		if(k%i==0 && i!=1) return count(i)+count(k/i);
+		else if(k%i==0 && i==1) return 1;	
+	}
+}

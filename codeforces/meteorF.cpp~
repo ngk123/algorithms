@@ -1,0 +1,79 @@
+#include<iostream>
+#include<queue>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+typedef struct m{
+int t;
+int d;
+}m;
+
+struct inT{
+	bool operator()(const m& b,const m& a)
+	{
+		if(a.t==b.t)
+		{
+			if(a.d>b.d)return true;
+			else return false;		
+		}
+		return (a.t<b.t);		
+	}
+};
+/*
+struct inT2{
+	bool operator()(int a,int b)
+	{
+		return (a>b);		
+	}
+}ccc2;
+*/
+int main()
+{
+	int n,power,tPre,ans=0,i,ti,di,newP,dt,newD;
+/*
+	cin >> n;
+	int a[11];
+	for(i=0;i<n;i++)
+	{
+		cin >> a[i];
+	}
+	sort(a,a+n,ccc2);
+	for(i=0;i<n;i++)
+	{
+		cout<< a[i]<< endl;
+	}
+	*/
+	///*
+priority_queue<m,vector<m>,inT> q;
+priority_queue<int,vector<int>> damage;
+	m temp;
+	
+	cin >> n;
+	for(i=0;i<n;i++)
+	{
+		cin >> ti >> di;
+		temp.t=ti;
+		temp.d=di;
+		q.push(temp);
+	}
+	dt=0;
+	while(!q.empty())
+	{
+		temp=q.top();
+		damage.push(temp.d);
+		newP=temp.t;
+		dt+=temp.d;
+		if(dt>newP)
+		{
+			newD=damage.top();
+			damage.pop();
+			dt-=newD;
+			ans++;
+		}
+		q.pop();
+	}	
+	cout << ans << endl;
+//*/
+	return 0;
+}

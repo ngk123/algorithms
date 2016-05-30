@@ -1,0 +1,6 @@
+25 MCQ GATE pattern mostly from algo and graph theory concept.
+2 coding ques..
+1. Maximum sum path across two array 
+http://www.geeksforgeeks.org/maximum-sum-path-across-two.../
+2. A n*n chess board is given and a special player which can move like king and knight.. total 16 possibilities.. 
+initial and ending ordinates are given and number of moves. You have to find how many ways to reach to the end by using exactly given number of moves.

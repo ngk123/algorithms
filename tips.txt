@@ -1,0 +1,9 @@
+1. Maximum Segment tree size:
+	4*n  : where n is size of the array
+	
+2. Setting complete array to zero:
+	memset(arr,0,sizeof(arr))
+	
+3. a^(p-2)=a^(-1) (mod p)
+	
+	

@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{	
+	int t,n,d[100002],i;
+	long long int ans,cnt;
+	cin >> t;
+	while(t--)
+	{
+		cin >> n;
+		cnt=0;
+		ans=0;
+		for(i=0;i<n;i++)
+		{
+			cin >> d[i];
+			ans+=abs(cnt);
+			//cout << "Cnt " << cnt << endl;
+			cnt+=d[i];
+		}
+		cout << ans << endl;		
+	}	
+	return 0;
+}
+

@@ -1,0 +1,51 @@
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+	int T,N,ig[51],flag,i;
+	scanf("%d",&T);
+	while(T--)
+	{
+		scanf("%d",&N);
+		for(i=0;i<N;i++)
+		{
+			scanf("%d",&ig[i]);
+			og[i]=ig[i];
+		}
+		
+		while(1)
+		{
+			flag=1;
+			for(i=0;i<N-1;i++)
+			{
+				if(ig[i]!=ig[i+1])
+				{
+					flag=0;
+					if(ig[i]>ig[i+1])
+					{
+						ig[i]=ig[i]-ig[i+1];
+					}
+					else
+					{
+						ig[i+1]=ig[i+1]-ig[i];
+					}
+					break;					
+				}
+			}	
+			if(flag==1)
+			{
+				gcd=ig[0];
+				break;
+			}
+					
+		}
+		
+		for(i=0;i<N;i++)
+		{
+			printf("%d ",og[i]/gcd);
+		
+		}
+		printf("\n");
+	}
+}

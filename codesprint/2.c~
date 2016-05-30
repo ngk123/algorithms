@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define mod 1000000007
+long long int choose(long long int n ,long long int r)
+{
+  
+  long long int ans=1;
+  if(r>n/2)r=n-r;
+  for(i=1;i<=r;i++)
+    {
+      ans*=(n-r+i);
+      ans/=i;
+    }
+  
+  ans=ans%mod;
+
+  return ans;
+}
+
+
+
+
+int main()
+{
+
+
+
+
+  return 0;
+
+}

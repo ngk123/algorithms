@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+
+  long long int n,S[1005];
+
+
+  scanf("%d",&n);
+
+ scanf("%f",&a);
+ S[0]=a*1000000;
+  for(i=1;i<n;i++)
+    {
+
+     
+
+      for()
+
+
+
+    }
+
+
+
+
+  return 0;
+}

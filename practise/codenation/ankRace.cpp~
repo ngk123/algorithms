@@ -1,0 +1,74 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define mod 1000000007
+typedef long long int lli;
+
+
+lli modInv(int i)
+{
+	lli temp=mod-2;
+	lli base=i;
+	lli ans=1;
+	
+	while(temp>0)
+	{
+		if(temp%2==1)
+		{
+			ans=ans*base;
+			ans=ans%mod;
+		}
+		base=(base*base)%mod;
+		temp=temp/2;
+	}	
+	return ans%mod;
+}
+
+
+int main()
+{
+	lli t,i,k,temp,sum,n;
+	lli ans,pre,arr[100001];
+	cin >> t;
+	while(t--)
+	{
+		cin >> n >> k;
+		for(i=0;i<n;i++)
+		{
+			cin >> arr[i];			
+		}
+		sort(arr,arr+n);
+		
+		sum=0;
+		if(k==1)
+		{
+			
+			for(i=0;i<n;i++)
+			{				
+				sum=sum+arr[i];
+				sum%=mod;
+			}
+			
+			cout << sum << endl;
+			continue;	
+		}
+		
+		ans=1;
+		pre=ans*arr[n-k];	
+		sum=pre;
+		for(i=n-k-1;i>=0;i--)
+		{
+			temp=(n-1)-i;
+			ans=((ans%mod)*temp)%mod;
+			ans=ans*(modInv(temp-k+1));
+			ans=ans%mod;
+			pre=ans*arr[i];
+			pre%=mod;
+			sum+=pre;		
+			sum%=mod;
+		}		
+		if(sum<0) sum+=mod;
+		cout << sum << endl;
+	}
+	return 0;
+
+}

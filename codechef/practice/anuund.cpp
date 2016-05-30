@@ -1,0 +1,59 @@
+//#include<cstdlib>
+//#include<cstdio>
+//#include<iostream>
+//#include<algorithm>
+#include<bits/stdc++.h>
+
+using namespace std;
+
+bool comp(int i , int j ) { return(j<i);}
+
+
+int main()
+{
+	int T,arr[100003],temp,i,N;	
+	cin >> T;
+	while(T--)
+	{
+		cin >> N;
+		for(i=0;i<N;i++)
+		{
+			cin >> arr[i];	
+		}
+       /*		for(i=0;i<N;i++)
+		{
+			cout << arr[i] << " " ;;
+		
+		}*/
+		//cout << endl;
+		sort(arr,arr+N,comp);
+		for(i=0;i<N;i++)
+		{
+			cout << arr[i] << " " ;;
+		
+		}
+		cout << endl;
+		for(i=1;i<(N-1);i++)
+		{
+			if(i%2==1)
+			{
+				if(arr[i]<arr[i+1])
+				{
+					temp=arr[i+1];
+					arr[i+1]=arr[i];
+					arr[i]=temp;				
+				}
+			}
+		
+		}
+		for(i=0;i<N;i++)
+		{
+			cout << arr[i] << " " ;;
+		
+		}
+		cout << endl;
+	}
+	
+	return 0;
+}
+

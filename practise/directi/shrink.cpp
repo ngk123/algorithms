@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespce std;
+
+int main()
+{	
+	int k,len,i;
+	vector<string> vs;
+	vector<int> vc,vn;
+	string str;
+	cin >> str;
+	cin >> k;
+	len=str.length();
+	ts=""
+	for(i=1;i<len;i++)
+	{
+		if()
+	}
+	
+	
+	return 0;
+}

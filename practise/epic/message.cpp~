@@ -1,0 +1,47 @@
+
+
+void dfs(string stroke,string str, string pos)
+{
+	if(pos==stroke.length())
+	{
+		cout << str << endl;
+	}
+	
+	str2=str+arr[(int)strok[pos]][0];
+	dfs(stroke,str,pos+1);
+	
+	if(pos+1<len &&& stroke[pos]==stroke[pos+1])
+	{
+		str+=arr[(int)strok[pos]][1];
+		dfs(stroke,str,pos+2);
+	}
+	
+	if(pos+2<len stroke[pos]==stroke[pos+1] && stroke[pos+1]==stroke[pos+2] )
+	{
+		str+=arr[(int)strok[pos]][2];
+		dfs(stroke,str,pos+3);
+	}
+	
+	if(pos+3<len && stroke[pos]==stroke[pos+1] && stroke[pos+1]==stroke[pos+2]  &&  stroke[pos+2]==stroke[pos+3] && (stroke[pos]=='7' || stroke[pos]=='8')  )
+	{
+		str+=arr[(int)strok[pos]][3];
+		dfs(stroke,str,pos+3);
+	}
+	
+	
+
+
+
+}
+
+
+
+
+
+string arr[9]= {"","","ABC","DEF","GHI","JKL","MNO","PQRS","TUV","WXYZ"};
+
+
+	str="";
+	dfs(stroke,str,0);
+	
+}

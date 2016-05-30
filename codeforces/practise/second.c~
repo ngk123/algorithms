@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+  int m,n;
+  int a,temp,ans;
+  temp=1;
+  scanf("d%d",&n,&m);
+  ans=0;
+  scanf("%d",&a);
+  ans=a-1;
+  for(i=0;i<m;i++)
+    {
+      scanf("%d",&a);
+      
+
+    }
+
+
+
+  return 0;
+}

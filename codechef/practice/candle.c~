@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+	int i,T,a[11],j,k,min,minIdx;
+	scanf("%d",&T);
+	for(i=0;i<T;i++)
+	{
+		int b[11]={0};					
+		min=11;
+		for(j=0;j<10;j++)
+		{
+			scanf("%d",&a[j]);
+			if(a[j]<min)
+			{min=a[j];minIdx=j;}
+		}	
+		if(minIdx==0)
+		{	
+			printf("1");
+			for(k=0;k<=min;k++)
+			{
+				printf("0");
+			}
+		
+		}
+		else
+		{
+			for(k=0;k<=min;k++)
+			{
+				printf("%d",minIdx);
+			
+			}
+		
+		}
+		printf("\n");
+	
+	
+	}
+
+	return 0;
+}

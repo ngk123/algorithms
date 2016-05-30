@@ -1,0 +1,42 @@
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+
+
+
+int constructSeg(int arr[],int sArr,int eArr,int seg[],int idx)
+{
+	int mid;
+	if(sArr==eArr)
+	{
+		seg[idx]=arr[sArr];
+		return arr[sArr];
+	}	
+	
+	mid=(sArr+eArr)/2;
+	
+	seg[idx]=constructSeg(arr,sArr,mid,seg,idx*2+1)+constructSeg(arr,mid+1,eArr,seg,idx*2+2);
+	return seg[idx];
+}
+
+
+
+int main()
+{
+	int n,i;
+	int arr[200],seg[400];
+		
+	cin >> n;
+	
+	for(i=0;i<n;i++)
+	cin >> arr[i];	
+	constructSeg(arr,0,n-1,seg,0);
+	
+		
+	return 0;
+}
+
+
+

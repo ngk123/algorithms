@@ -1,0 +1,7 @@
+3
+5 ddacc
+3 cac
+7 cbbccbc
+4 aaca
+4 cbeb
+5 fdceb

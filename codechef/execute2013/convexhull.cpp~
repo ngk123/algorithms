@@ -1,0 +1,69 @@
+#include <cstdio>
+#include <cassert>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+
+using namespace std;
+
+#define REMOVE_REDUNDANT
+
+typedef int T;
+const double EPS = 1e-7;
+struct PT { 
+  T x, y; 
+  PT() {} 
+  PT(T x, T y) : x(x), y(y) {}
+  bool operator<(const PT &rhs) const { return make_pair(y,x) < make_pair(rhs.y,rhs.x); }
+  bool operator==(const PT &rhs) const { return make_pair(y,x) == make_pair(rhs.y,rhs.x); }
+};
+
+T cross(PT p, PT q) { return p.x*q.y-p.y*q.x; }
+T area2(PT a, PT b, PT c) { return cross(a,b) + cross(b,c) + cross(c,a); }
+
+#ifdef REMOVE_REDUNDANT
+bool between(const PT &a, const PT &b, const PT &c) {
+  return (fabs(area2(a,b,c)) < EPS && (a.x-b.x)*(c.x-b.x) <= 0 && (a.y-b.y)*(c.y-b.y) <= 0);
+}
+#endif
+
+void ConvexHull(vector<PT> &pts) {
+  sort(pts.begin(), pts.end());
+  pts.erase(unique(pts.begin(), pts.end()), pts.end());
+  vector<PT> up, dn;
+  for (int i = 0; i < pts.size(); i++) {
+    while (up.size() > 1 && area2(up[up.size()-2], up.back(), pts[i]) >= 0) up.pop_back();
+    while (dn.size() > 1 && area2(dn[dn.size()-2], dn.back(), pts[i]) <= 0) dn.pop_back();
+    up.push_back(pts[i]);
+    dn.push_back(pts[i]);
+  }
+  pts = dn;
+  for (int i = (int) up.size() - 2; i >= 1; i--) pts.push_back(up[i]);
+}
+
+int main()
+{	
+	int t;
+	scanf("%d",&t);
+	while(t--)
+	{
+		int i,n;
+		int x,y;
+		scanf("%d",&n);
+		vector<PT> p(n);
+		for(i = 0;i < n;i++)
+		{
+			scanf("%d %d",&x,&y);
+			p[i].x = -x;
+			p[i].y = y;			
+		}
+		ConvexHull(p);
+		float dist = 0.0;
+		for(i = 0;i < p.size();i++)
+		{
+			dist+= sqrt((p[i].x-p[(i+1)%p.size()].x)*(p[i].x-p[(i+1)%p.size()].x)+(p[i].y-p[(i+1)%p.size()].y)*(p[i].y-p[(i+1)%p.size()].y));
+		}
+		printf("%f\n",dist);
+	}
+	return 0;
+}

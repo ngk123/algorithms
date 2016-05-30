@@ -1,0 +1,60 @@
+#include <cstdio>
+#include <cmath>
+#include <algorithm>
+
+#define max 1000000
+
+using namespace std;
+
+bool compare(int a,int b)
+{
+	if(a>b)return true;
+	else return false;
+}
+int stgth[3000003];;
+int main ()
+{
+    int T,n,i,j,a,b,diff,c,d,even,maximum;	
+	long long int pre,current;
+	
+    	
+	scanf("%d",&T);
+	
+	while(T--)
+	{
+		//cin>>n>>a>>b>>c>>d;
+		scanf("%d%d%d%d%d",&n,&a,&b,&c,&d);
+		diff=0;
+		
+		stgth[0]=d;
+		pre=d;
+		maximum=d;
+		for(i=1;i<n;i++)
+		{
+			current=(pre*pre)%max;
+			current=(current*a)%max;
+			current+=(b*pre)%max;
+			current+=c;
+			current=current%max;
+			stgth[i]=current;	
+			pre=current;
+			if(pre>maximum)maximum=pre;
+		}
+		
+		sort(stgth,stgth+n,compare);
+				
+		for(i=0;i<n;i++)
+		{
+		  if(i%2==0)diff+=stgth[i];
+		  else diff-=stgth[i];
+				
+		}
+		if(diff<0)diff=-diff;
+		printf("%d\n",diff);
+		
+	
+	}		
+		 
+	return 0;
+}
+

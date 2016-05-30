@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+
+  long long int T,L,R;
+  scanf("%d",&T);
+  while(T--)
+    {
+      scanf("%d%d",&L,&R);
+      temp1=L;
+      temp2=R;
+      dig1=0;
+      dig2=0;
+      while(temp1>0)
+	{
+	  temp1=temp1/10;
+	  dig1++;
+	}
+
+      while(temp2>0)
+	{
+	  temp2=temp2/10;
+	  dig2++;
+	}
+
+
+
+    }
+  return 0;
+}

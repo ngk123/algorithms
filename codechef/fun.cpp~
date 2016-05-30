@@ -1,0 +1,113 @@
+#include<cstdio>
+#include<cstdlib>
+#include<iostream>
+#include<math>
+#define MAX 1000000000000000000
+#define mod 1000000007
+typedef long long int lli;
+//lli mat[61][1000010];
+
+using namespace std;
+int main()
+{
+    int temp[]={1000001 ,31623 ,3982 ,1001 ,373 ,178 ,101 ,64 ,44 ,32 ,25 ,20 ,16 ,14 ,12 ,11 ,9 ,8 ,8 ,7 ,7 ,6 ,6 ,5 ,5 ,5 ,5 ,4 ,4 ,4 ,4 ,4 ,4 ,4 ,4 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,3 ,2 ,2 ,2 };
+	int T,A[10004],i,j,N,Q,q,cols;
+	int cr=1000010;
+    
+     lli **matrix,ans;
+     matrix=(lli **)malloc(61*sizeof(lli *));
+     matrix[0]=(lli *)malloc(cr*sizeof(lli));
+     
+     for(j=0;j<cr ;j++)
+		{
+			matrix[0][j]=(lli)j*j*j;
+			if(matrix[0][j]<0 || matrix[0][j]>MAX ){matrix[0][j]=-1;break;}
+		}
+    /*
+	for(j=0;j<cr ;j++)
+		{
+			mat[0][j]=(lli)j*j*j;
+			if(mat[0][j]<0 || mat[0][j]>MAX ){mat[0][j]=-1;break;}
+		}
+*/
+	for(i=1;i<60;i++)
+	{
+	   cols=temp[i];
+	   cols=cols+1;
+ 	   matrix[i]=(lli *)malloc(cols*sizeof(lli));
+		for(j=0;j<cr;j++)
+		{
+//			 matrix[i][j]=(lli)malloc(sizeof(lli));
+		    //matrix[i][j]=malloc(sizeof(lli));
+//			mat[i][j]=j*mat[i-1][j];
+			matrix[i][j]=j*matrix[i-1][j];
+			if(i==56)printf("%lld\t",matrix[i][j]);
+			if(matrix[i][j]<0 || matrix[i][j]>MAX ){matrix[i][j]=-1;break;}
+		}
+	}
+	printf("\n");
+	for(i=0;i<60;i++)
+	{
+		for(j=0;j<cr;j++)
+		{
+			//printf("%lld\t",mat[i][j]);
+//			if(mat[i][j]==-1)break;
+			if(matrix[i][j]==-1)break;
+		}		
+		printf("%d-->%d \n",i,j);
+		//printf("\n");
+	}
+	
+	//printf("%d\n",j);
+	scanf("%d",&T);
+
+
+	while(T--)
+	{
+		scanf("%d%d",&N,&Q);
+		for(i=0;i<N;i++)
+		{
+			scanf("%d",&A[i]);
+		}
+		
+		
+		
+		for(i=0;i<Q;i++)
+		{
+			scanf("%d",&q);
+			
+			ans=x%mod;
+			ans=(ans*A[0])%mod;
+			if(N>1)
+			{
+			tempL=(sqrt(x)*A[1])%mod;
+			ans=(tempL+ans)%mod;
+			}
+			if(N>=62)min=62;
+			else min=N;
+			for(i=2;i<min;i++)
+			{
+				for(j=0;;j++)
+				{
+					if(matrix[i-2][j]>x || matrix[i-2][j]==-1)
+					{
+						tempL=(A[i]*matrix[i-2][j-1])%mod;
+						ans=(ans+tempL)%mod;
+						break;
+					}
+				}
+			}
+			
+			for(i=63;i<=N;i++)
+			{
+				ans=(ans+A[i-1])%mod;
+			}
+			
+			printf("%lld ",ans);
+			
+		}
+		
+		printf("\n");
+	}
+	return 0;
+}

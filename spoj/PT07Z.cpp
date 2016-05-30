@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int visited[100003];
+vector<int> ed[10002];
+int fa=0;
+
+
+int dfs(int root)
+{
+	int i,h1=-1,h2=-1,temp;
+	if(visited[root]==0)
+	{
+		visited[root]=1;
+		for(i=0;i<ed[root].size();i++)
+		{
+			if(visited[ed[root][i]]==0)
+			{
+				temp=dfs(ed[root][i]);	
+				if(temp>=h1)
+				{
+					h2=h1;
+					h1=temp;			
+				}
+				else if(temp>h2)
+				{
+					h2=temp;
+				}							
+			}	
+		}				
+	}		
+	fa=max(fa,h1+h2+2);
+	return h1+1;
+}
+
+
+
+int main()
+{
+	
+	int n,i,a,b;
+	cin >> n;
+	for(i=0;i<n-1;i++)
+	{
+		cin >> a >> b;
+		ed[a].push_back(b);
+		ed[b].push_back(a);			
+	}	 
+	dfs(1);	
+	cout << fa << endl;
+	return 0;
+}
+
+
+

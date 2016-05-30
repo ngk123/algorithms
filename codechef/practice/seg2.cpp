@@ -1,0 +1,99 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+int constructSeg(int arr[],int sa , int ea , int seg[], int si)
+{
+	int mid;
+	if(sa==ea)
+	{
+		seg[si]=arr[sa];
+		return seg[si];
+	}
+	else
+	{
+		mid=(sa+ea)/2;
+		seg[si]=constructSeg(arr,sa,mid,seg,2*si+1)+constructSeg(arr,mid+1,ea,seg,2*si+2);
+		return seg[si];
+	}
+}
+
+
+int update(int diff, int sa, int ea, int idx, int seg[],int si)
+{
+	int mid;
+	if(idx<sa || idx>ea)
+	{
+		return 1;	
+	}
+	seg[si]+=diff;	
+	if(sa!=ea)
+	{
+		mid=(sa+ea)/2;
+		update(diff,sa,mid,idx,seg,2*si+1);
+		update(diff,mid+1,ea,idx,seg,2*si+2);
+	}	
+	return 1;	
+}
+
+
+int getSum(int sa, int ea , int si , int l , int r , int seg[] )
+{
+	int mid;
+	if(l>ea || r<sa)
+	return 0;
+	
+	if(l<=sa && r>=ea)
+	{
+		return seg[si];
+	}	
+	else
+	{
+		mid=(sa+ea)/2;
+		return getSum(sa,mid,2*si+1,l,r,seg)+getSum(mid+1,ea,2*si+2,l,r,seg);	
+	}
+	
+	return 0;
+		
+}
+
+
+
+int main()
+{
+	
+	int arr[200],seg[800], n,i,ans1,diff,q,val,id,l,r;	
+	cin >> n;
+	for(i=0;i<n;i++)
+	{
+		cin >> arr[i];
+	}
+	constructSeg(arr,0,n-1,seg,0);	
+	
+	while(1)
+	{
+		cin >> q;
+		if(q==1)
+		{
+			cin >> l >> r;
+			ans1=getSum(0,n-1,0,l,r,seg);
+			cout << "Sum : " << ans1 << endl;
+		}
+		else if(q==2)
+		{
+			cin >> id >> val;
+			diff=val-arr[id];
+			update(diff,0,n-1,id,seg,0);
+		
+		}	
+		else
+		{
+			break;
+		}
+	
+	}	
+	
+	return 0;
+}
+

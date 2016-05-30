@@ -1,0 +1,34 @@
+#include<iostream>
+#include<map>
+using namespace std;
+
+typedef pair<int,int> pii;
+
+
+int main()
+{
+	map<int,int,comp> a;
+	int n,i,b;
+	cin >> n;
+	for(i=0;i<n;i++)
+	{
+		cin >> b;
+		if(a.find(b)==a.end())
+		{
+			a.insert(pii(b,1));
+		}
+		else
+		{
+			a[b]++;
+		}
+	}
+	
+	for(map<int,int>::iterator it=a.begin();it!=a.end();++it)
+	{
+		if(it->second==3) cout << it->first << endl;	
+	}
+	
+	
+	return 0;
+
+}

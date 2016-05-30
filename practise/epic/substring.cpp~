@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int product(int num)
+{
+	int temp;
+	int ans=1;
+	temp=num;
+	while(temp>0)
+	{
+		ans=ans*(temp%10);
+		temp=temp/10;	
+	}
+	return ans;
+}
+
+int main()
+{	
+	int n,arr[100],temp,len,flag,prod,i,j;
+	set<int> a;
+	set<string> b;
+	set<int>:: iterator it;
+	string str,str2;
+	cin >> str;	
+	len=str.length();
+	flag=0;
+	for(i=0;i<len;i++)
+	for(j=len-i;j>0;j--)
+	{
+		str2=str.substr(i,j);		
+		if(b.find(str2)==b.end())
+		{
+			cout << str2 << endl;
+			
+			b.insert(str2);
+			temp=atoi(str2.c_str());
+			prod=product(temp);
+			//cout << prod << endl;
+			it=a.find(prod);
+			if(it!=a.end())
+			{
+				cout << "false\n";
+				return 0;	
+			}
+			else
+			{
+				a.insert(prod);			
+			}
+			
+			
+		}		
+	}	
+	
+	cout << "true\n";
+	return 0;
+}

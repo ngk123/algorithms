@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+
+  int N,i,b[100001],tree[400004],Q,L,R;
+
+  scanf("%d",&N);
+
+
+  for(i=0;i<N;i++)
+    {
+
+      scanf("%d",&b[i]);
+
+    }
+  scanf("%d",&Q);
+  while(Q--)
+    {
+      scanf("%d%d",&L,&R);
+
+
+
+
+    }
+  return 0;
+}

@@ -1,0 +1,10 @@
+#include<stdio.h>
+int main()
+{
+	int a=1000000000;
+	int b=1000000000;
+	long long int c;
+	c = ((long long int)a)b;
+	printf("%lld\n",c);
+
+}

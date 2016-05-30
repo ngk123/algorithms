@@ -1,0 +1,21 @@
+#include<time.h>
+#include<iostream>
+
+
+int main()
+{
+srand(time(NULL));
+
+int i;j,T;
+
+t=10;
+
+
+while(t--)
+{
+	n=rand();
+
+
+}
+
+}

@@ -1,0 +1,88 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int* calculateFailure(string str)
+{	
+	int l;
+	static int fail[200];
+	l=str.length();
+	int len=0,i=1;
+	fail[0]=len;
+	
+	while(i<l)
+	{
+		if(str[i]==str[len])
+		{
+			fail[i]=len+1;
+			len++;
+			i++;
+		}
+		else
+		{
+			if(len>0)
+			{
+				len=fail[len-1];
+			}
+			else
+			{
+				fail[i]=0;
+				i++;				
+			}			
+		}	
+	}
+	return fail;
+}
+
+
+
+
+
+int main()
+{
+	int *fail,i,l,len,l1,l2;
+	vector<int> matchedId;
+	string str1,str2;	
+	cin >> str1 >> str2;
+	l1=str1.length();
+	l2=str2.length();
+	//str1=str1+str1;
+	fail=calculateFailure(str2);
+	for(i=0;i<l2;i++)
+	{
+	//	cout << fail[i] << endl;
+	}
+	i=0;
+	len=0;
+	while(i<l1)
+	{
+		if(str1[i]==str2[len])
+		{
+			i++;
+			len++;
+		}	
+		else
+		{	
+			if(len>0)
+			{
+				len=fail[len-1];	
+			}
+			else
+			{
+				i++;	
+			}		
+		}
+		if(len==l2)
+		{
+			matchedId.push_back(i-l2);
+			len=fail[len-1];
+		}
+				
+	}
+	cout << matchedId.size() << endl;
+	for(i=0;i<matchedId.size();i++)
+	{
+		cout << "Matched Id : " << matchedId[i] << endl;
+	}		
+			
+	return 0;
+}

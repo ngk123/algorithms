@@ -1,0 +1,58 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+	int n1,n2,i,n,temp,sum1,sum2,ans,max1,max2;
+	while(1)
+	{
+		int arr1[20001]={0};
+		int arr2[20001]={0};
+		
+		cin >> n1;
+		if(n1==0)break;
+		for(i=0;i<n1;i++)
+		{
+			cin >> temp;
+			arr1[temp+10000]=1;
+		}	
+		max1=temp;	
+		cin >> n2;
+		for(i=0;i<n2;i++)
+		{
+			cin >> temp;
+			arr2[temp+10000]=1;		
+		}	
+		max2=temp;
+		n=max(max1,max2)+10000;
+		
+		sum1=0;
+		sum2=0;
+		ans=0;
+		for(i=0;i<=n;i++)
+		{
+			if(arr1[i]==1 && arr2[i]==1)
+			{
+				//cout << "maxPart : "<< max(sum1,sum2)<< endl;
+				ans=ans+max(sum1,sum2);
+				ans=ans+i-10000;
+				sum1=sum2=0;
+			}				
+			else if(arr1[i]==1 && arr2[i]==0)
+			{
+				sum1=sum1+i-10000;
+			}			
+			else if(arr1[i]==0 && arr2[i]==1)
+			{
+				sum2=sum2+i-10000;
+			}		
+		
+		}	
+		cout << ans+max(sum1,sum2) << endl;
+				
+	}
+	return 0;
+}
+
+

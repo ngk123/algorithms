@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int t,i,n,first,last,m,a;
+	cin >> t;	
+	//int arr[100002];
+	while(t--)
+	{
+		cin >> n >> m ;
+		cin >> a;
+		first=a;
+		last=a;
+		for(i=1;i<m;i++)
+		{
+			cin >> a;
+			if(first>a)first=a;			
+			if(last<a)
+			last=a;			
+		}	
+		
+		for(i=0;i<n;i++)
+		{
+			cout << max(abs(first-i), abs(last-i)) <<" ";
+		}
+		cout << endl;
+	}
+	return 0;
+}

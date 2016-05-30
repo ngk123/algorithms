@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+  int N,ax,ay,bx,by,cx,cy,lowest,highest;
+  lowest=1;
+  highest=1;
+  scanf("%d",&N);
+  while(N--)
+    {
+
+
+
+
+
+
+
+    }
+
+
+
+
+  return 0;
+}

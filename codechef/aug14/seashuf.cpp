@@ -1,0 +1,17 @@
+#include<cstdlib>
+#include<cstdio>
+#include<iostream>
+
+using namespace std;
+int main()
+{
+	int N,a[100001],i;
+	
+	cin >> N;
+	for(i=0;i<N;i++)
+	{
+		cin >> a[i];		
+	}
+	cout << "0" <<endl;
+	return 0;
+}

@@ -1,0 +1,3 @@
+g++ practice/CRZ04.cpp
+echo hi
+./a.out > practice/out

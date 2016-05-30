@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+
+int power(int i, int a)
+{
+	int j,ans=1;
+	for(j=1;j<=a;j++)
+		ans=ans*i;
+	return ans;
+}
+
+int sumDig(int num)
+{
+	int dig,sum=0;
+	while(num>0)
+	{
+		dig=num%10;
+		sum+=dig;	
+		num=num/10;
+	}
+
+	return sum;
+}
+
+int main()
+{
+	
+	long long int a, b, c,temp,i,ans,s[100],count=0;
+	
+	
+	cin>> a >> b >> c;
+		
+	for(i=1;i<=90;i++)
+	{
+		
+		temp=power(i,a);
+		temp=(temp*b)+c;
+		ans=sumDig(temp);		
+		if(ans==i && temp>0 && temp < 1000000000)
+		{ s[count]=temp; count++;}
+	}
+	cout << count << endl;
+	for(i=0;i<count;i++)
+	{
+		cout << s[i] << " ";
+	}
+	cout << endl;
+	
+	 return 0;
+}
+

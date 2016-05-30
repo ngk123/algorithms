@@ -1,0 +1,33 @@
+#include<stdio.h>
+
+int main()
+{
+  int N,arr[1000][1001];
+
+  scanf("%d",&N);
+
+  for(i=1;i<=N;i++)
+    {
+      scanf("%d",&a[i]);
+    }
+
+  for(i=1;i<N;i++)
+    {
+      arr[i][0]=0;
+      arr[i][1]=i;
+      next=i;
+      count=2;
+      while(1)
+	{
+	  arr[i][count]=a[next];
+          next=a[next];
+	   count++;
+	   if(next==i){arr[i][0]=1;arr[i][count]=next;}
+	   if(count==N+1)break;
+	}
+
+
+    }
+
+
+}

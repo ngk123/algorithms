@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+	int A,N,K,temp,i,base;
+	int conf[102]={0};
+	scanf("%d%d%d",&A,&N,&K);
+	base=N+1;
+	temp=A;
+	i=0;
+	while(temp!=0)
+	{
+		conf[i]=temp%base;		
+		temp=temp/base;
+		i++;
+		if(i>=K)break;
+	}
+	
+	for(i=0;i<K;i++)
+	{
+	  printf("%d ",conf[i]);
+	}
+	printf("\n");
+	return 0;
+}

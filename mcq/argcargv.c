@@ -1,0 +1,10 @@
+#include<stdio.h>
+
+int main(int argc, char *argv[])
+{
+	int a=5;
+	printf("%d\n%s\n",argc,argv[0]);	
+	//printf("%b\n",a);
+	
+	return 0;
+}

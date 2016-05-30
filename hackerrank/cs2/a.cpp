@@ -1,0 +1,74 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define gc getchar_unlocked
+
+
+vector<int> v[200005];
+int main()
+{	
+    int n,Q;
+    cin >> n;
+    cin >> Q;
+    int a[n];
+    for(int i=0 ; i< n  ; i++)
+    {
+        cin >> a[i];
+        v[a[i]].push_back(i);
+    }
+    while(Q--)
+    {
+        int Y;
+        cin >>Y;
+        if(Y==1)
+        {
+            int t1,t2;
+           cin >>t1;
+            cin >> t2;
+            vector<int> v1 = v[t1];
+            vector<int> v2 = v[t2]; 
+            for(int i = 0 ;  i< v[t1].size() ; i++)
+            {
+                a[v[t1][i]] = t2;
+            }
+            for(int i = 0 ;  i< v[t2].size() ; i++)
+            {
+                a[v[t2][i]] = t1;
+            }
+            v[t2].clear();
+            v[t1].clear();
+            v[t1] = v2;
+            v[t2] = v1;
+        }
+
+        else
+        {
+            int y;
+            cin >> y;
+            int ans = 0;
+            int j;
+            int temp = 0;
+            for(j= 0 ; j< n ; j++)
+            {
+                if(a[j] <=y)
+                {
+                    break;
+                }
+            }
+            for(int i= j ; i< n ; i++)
+            {
+                if(a[i] <= y && temp == 0)
+                {
+                    ans++; 
+                    temp = 1;
+                }
+                if(a[i] > y)
+                {
+                    temp = 0;
+                }
+            }
+            printf("%d\n",ans);
+        }
+    }
+    return 0;
+}

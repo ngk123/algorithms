@@ -1,0 +1,108 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef pair<int,int> pii;
+
+typedef struct cell{
+int xcord;
+int ycord;
+int ht;
+}cell;
+
+int arr[101][101];
+int visit[101][101];
+int m,n,diff;
+int bfs(int a, int b,int c, int d)
+{
+	queue<cell> Q;
+	cell temp;
+	temp.xcord=0;
+	temp.ycord=0;
+	temp.ht=0;
+	memset(visit,0,sizeof(visit));
+	Q.push(temp);
+	visit[0][0]=1;
+	int cnt=0,flag=0,l,f,h;
+	while(!Q.empty())
+	{
+		//cout << "Hiii\n";
+		temp=Q.front();
+		l=temp.xcord;
+		f=temp.ycord;
+		h=temp.ht;
+		Q.pop();
+		if(l==c && f==d)
+		{
+			flag=1;
+			break;
+		}
+		temp.ht=h+1;
+		if(l-1>=0 && visit[l-1][f]==0 && abs(arr[l][f]-arr[l-1][f])<= diff )
+		{
+			temp.xcord=l-1;
+			temp.ycord=f;			
+			Q.push(temp);
+			visit[l-1][f]=1;
+		}
+		if(f-1>=0 && visit[l][f-1]==0 &&  abs(arr[l][f]-arr[l][f-1])<= diff)
+		{
+			temp.xcord=l;
+			temp.ycord=f-1;			
+			Q.push(temp);
+			visit[l][f-1]=1;
+		}
+		
+		if(l+1<m && visit[l+1][f]==0 && abs(arr[l][f]-arr[l+1][f])<= diff  )
+		{
+			temp.xcord=l+1;
+			temp.ycord=f;			
+			Q.push(temp);
+			visit[l+1][f]=1;	
+		}
+		
+		if(f+1<n && visit[l][f+1]==0 && abs(arr[l][f]-arr[l][f+1])<= diff)
+		{
+			temp.xcord=l;
+			temp.ycord=f+1;			
+			Q.push(temp);
+			visit[l][f+1]=1;			
+		}
+
+			
+	}
+	
+	if(flag==1)
+	return h-1;
+	else
+	return -1;	
+	
+}	
+
+
+int main()
+{
+	int T;
+	int x,y,i,j,ans;
+	cin >> T;
+	
+	while(T--)
+	{
+		memset(arr,0,sizeof(arr));
+		cin >> m >> n >> x >> y >> diff;
+		for(i=0;i<m;i++)
+		{
+			for(j=0;j<n;j++)
+			{
+				cin >> arr[i][j];				
+			}			
+		}	
+		ans=bfs(0,0,x-1,y-1);
+		cout << ans << endl;
+	}
+	
+	
+
+
+	return 0;
+}
+

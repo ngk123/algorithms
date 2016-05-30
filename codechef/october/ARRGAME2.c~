@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+
+  int T,N,A[100001],B[100001];
+
+  scanf("%d",&T);
+
+  while(T--)
+    {
+      scanf("%d",&N);
+      for(i=0;i<N;i++)
+	{
+	  scanf("%d",&A[i]);
+	}
+      for(i=0;i<N;i++)
+	{
+	  scanf("%d",&B[i]);
+	}
+
+    }
+  return 0;
+}

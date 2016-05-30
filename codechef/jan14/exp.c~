@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<stdib.h>
+
+
+typedef struct dodo
+{
+  int a;
+  int b;
+  char c;
+}dodo;
+
+
+int cmpfunc (const void * e, const void * f)
+{
+
+  return (*(one*)e.b - *(one*)f.b);
+
+
+}
+
+int main()
+{
+  int i;
+  dodo one[10];
+
+  for(i=0;i<5;i++)
+    {
+      scanf("%d%d%c",&one[i].a,&one[i].b,&one[i].c);
+    }
+
+  qsort(one,5,sizeof(dodo),cmpfunc);
+
+  for(i=0;i<5;i++)
+    {
+
+
+      printf("%d\n",one[i].b);
+    }
+
+  return 0;
+}

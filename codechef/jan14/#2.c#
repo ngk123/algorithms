@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int read()
+{
+  char c = 0;
+  int input = 0;
+  while(c < 33)
+    c = getchar_unlocked();
+  while(c > 33)
+    {
+      input = input*10+c-'0';
+      c = getchar_unlocked();
+    }
+  return input;
+}
+
+
+
+typedef struct comp
+{
+  int st;
+  int end;
+  int compno;
+  int flag;
+}comp;
+
+
+int cmpfunc (const void * e, const void * f)
+{
+  
+  return (  (*(comp*)e).end- (*(comp*)f).end );
+}
+
+
+int main()
+{
+  int T,N,K,l,m,o,ans,i,j,temp,maxend,s,k,count;
+  comp og[100006],process[100006];
+  T=read();
+  while(T--)
+    {
+      N=read();
+      K=read();
+      cnt=0;
+      og[s].st=read();og[s].end=read();og[s].compno=read();
+      og[s].flag=1;
+      cnt++;
+      s++;
+      while(1)
+	{
+	  if(count<N)
+	    {
+	      og[s].st=read();og[s].end=read();og[s].compno=read();
+	      og[s].flag=1;
+	    }
+	  if(og[s].compno>og[s-1].compno)
+	    {
+
+
+
+    	      og[0].st= og[s].st;og[0].end=og[s].end;og[0].compno=og[s].compno;
+	      og[0].flag=1;   
+	      s=0;
+	    }
+	  s++;
+	  cnt++;
+	}
+      
+      
+    }
+  return 0;
+}

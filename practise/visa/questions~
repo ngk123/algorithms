@@ -1,0 +1,145 @@
+-> next prime (look at bartrand postulate)
+
+-> fibonnaci with matrix method
+	(Problem reduced to square of fibonacci number for input n)
+	
+-> do inversion count (with lower bound as weel as segment tree)
+
+-> Nim Game
+
+-> http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
+	
+	with some modification that we can perform one flip operation on array.
+	we may select any number of contiguous element from given array for flip operation.
+	Such that sum of element of array should be maximum.
+	NOTE: flip operation will invert sign of all contiguous element
+
+-> given preorder, inorder, calculate postorder..
+
+-> N clothes each of a given length and hanging on a rope at position i, calculate number of clothes finally visible..
+Example: (2,4) (1,3) (3,5) : output is 2 2nd and 3rd cloth will be visible..
+s
+-> A number x is mapped to 'x + (number of 1 bits in x)'
+Calculate from the given array, the count of numbers which can't be mapped in this way..
+For example: 3 is mapped to 5, 2 is mapped to 3..
+So, 5 and 3 can be mapped by some number.. But 4 can't be mapped.
+
+-> given a sentence reverse each word and get the first letter of the reversed word to be capital if it is a letter otherwise let it be as it is.
+
+->First question boiled down to finding sum of all numbers in the nth row of the Pascal's triangle (2 ^ n).
+
+->You are given a large cake, you can make n (<= 10 ^ 9) vertical cuts, what is the maximum number of pieces you can make modulo 10^9 + 7. (You can double the number of pieces in each cut by stacking the pieces upon each other and then making a cut. So answer is 2 ^ n modulo 10^9+7). Both the questions had the same answer! Only difference: n was small enough for a one line solution in the first question.
+
+->given array of integers and sum, find in how many ways you can select subset of array whose sum is given sum.
+
+->given array of 10^6 positions, initially 0, perform queries. Query is to increment given position by 1. Each query was followed by some start and end positions, give sum of sub-array for each query.
+
+
+-> The Pizzeria Problem
+One pizza delivery boy has to serve "n" number of customers. He can serve one pizza at a time. Each customers pizza receiving time, and time taken to come back to the pizzeria are given. You have to find out maximum number of possible pizza deliveries.
+Note :TIme taken by the delivery boy to customer is negligible
+
+Input:
+N : Number of customers
+a[N] : Pizza receiving time
+b[N] : Time needed to come back to pizzeria after delivering to ith customer
+Output:
+Maximum Number of orders that can be fulfilled using the scheduling you made
+
+Ex :
+Input : 5 {3 6 1 4 7} {5 8 4 7 10}
+output: 3 (Explanation : a[2]->a[3]->a[4])
+
+-> Jack Sparrow's escape from Jail
+Input :
+Four arguments
+(climbUp, climbDown, noWalls, wallHeights[])
+climbUp : number of meters he can jump (1 <= climbUp <= 10^4)
+climbDown: number of meters he slides down (1 <= climbUp <= 10^4)
+noWalls : number of walls he needs to jump to escape (1 <= noWalls <= 10^4)
+wallHeights[] : 1-D array containing height of each wall(1 <= height <= 10^3)
+Output :
+Total number of jumps to output variable output1
+
+Ex :
+Input: 5:1:2:{9,10}
+Here Jack Sparrow can jump height of 5 meters, but slides down by 1 meter. He has 2 walls to jump and the height of each wall is 9 and 10 meteres, resp. For 1st wall he needs two attempts(5m up-> 1m down-> 5m up) to cross it. In the same way he needs 3 attempts to cross 2nd wall. SO total 5 attempt.
+
+
+
+ML  & Hadoop:
+
+2 questions out of 6....
+1) What is the default inputFormat for MapReduce system ?
+a. FileInputFormat
+b. TextInputFormat
+c. SequenceFileFormat
+d. BinaryFileFormat
+
+2) For a given feature, you have the following values: (5,8,9,2). You plan to use both min-max normalization (dividing by max-min) and mean normalization. What would be the normalized value of feature value 5 ? 
+Some more coding questions:
+a. 0.12 b. 5.29 c. 0.33 d. -0.33
+
+1. Default input format: Ans. TextInputFormat
+2. Probability question based on Bayes Theorem
+3. What happens in a regression algorithm if the threshold is decreased. (what happens to recall and precision)
+4. Some questions on return type of certain functions
+5. Classification problem(experience, task, learning algorithm)
+6. reducer = 0?
+
+
+
+Infrastucture:
+
+1. What does amazon aws service provides? 
+2. What is failing securely? I do not remember all of them but they are quite intuitive and you have to guess the answer out of 4 options
+
+
+Network  & OS:
+
+Read Data Link Layer, IP class basics
+What is ARP protocol? 
+Ethernet header contains which fields? 
+What is swapping?
+What happens in thrashing? 
+Question on yield and synchronization,
+
+OS: Linux commands, Memory Management, disk management, context switch.
+
+Networking: Basically ARP, different message types in different layers, N/W topology,Ethernet header, etc.
+
+
+Programming questions were based on Java. 
+1. try, catch, finally
+2. error in given function etc
+3. Threads based questions
+4. Polymorphism 
+5. Access modifiers
+
+Application security hovered around RSA, DLP (key exchange), MAC security, semantic and deterministic encryption, securely failing, positive security models. 
+
+
+how to prevent electrostatic discharge of server. 
+if file wants some privelege before executing which commands should be use option are
+1.cmd
+2.chmod
+3.cpriv and some other
+memery diveded into fixed partition the partition may contain
+1.empty
+2.less then 1 process
+3.2 process
+4.exactly one process
+which topolgy most flexible for wiring
+1.bus
+2.star
+and some more
+what does ethernet header have
+which term is not securty related
+1.accessiblty
+2.intergrety
+3.correctness
+4.confidentialty
+a question like
+what do you mean by putting a process into disk and loading it later
+ans.swaping
+

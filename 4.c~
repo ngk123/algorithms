@@ -1,0 +1,53 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+
+int cmpfunc (const void * e, const void * f)
+{
+  return (  (*(comp*)e).end- (*(comp*)f).end );
+}
+
+
+int main()
+{
+  int T,N,k,boy[1003],girl[1003];
+  long long int ans;
+  scanf("%d",&T);
+
+
+  while(T--)
+    {
+      scanf("%d%d",&N,&k);
+
+      for(i=0;i<N;i++)
+	{
+	  scanf("%d",&boy[i]);
+	}
+      qsort(boy,N,sizeof(int),cmpfunc);
+      for(i=0;i<N;i++)
+	{
+	  scanf("%d",&girl[i]);
+	}
+      qsort(girl,s,sizeof(int),cmpfunc);
+      
+      flag=0;
+      ans=0;
+      for(i=0;i<N;i++)
+	{
+	  ans+=boy[i]*girl[N-i];
+	  if(ans>k){flag=1;break;}
+
+
+	}
+
+      if(flag=1)printf("NO\n");
+      else printf("YES\n");
+
+    }
+
+
+qsort(og,s,sizeof(comp),cmpfunc);
+
+
+  return 0;
+}

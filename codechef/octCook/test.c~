@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<stdloib.h>
+
+int main()
+{
+  int  T,i,j,n;
+
+
+  scanf("%d",&T);
+
+  while(T--)
+    {
+
+
+
+
+
+    }
+
+
+  return 0;
+}
+

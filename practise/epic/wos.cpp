@@ -1,0 +1,20 @@
+
+
+void searchHorizonatl
+
+void searchVertical
+
+void searchDiagonal()
+{
+	for(k=0;k<n;k++)
+	{
+		for(i=k,j=0;i>0;i--,j++)
+		{	
+			for(l=i,m=j;l>i-len;l--,m++)
+			{	
+				if(mat[l][m]==)
+			}
+		}	
+	}
+	
+}

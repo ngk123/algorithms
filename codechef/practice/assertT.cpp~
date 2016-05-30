@@ -1,0 +1,17 @@
+#include<cstdio>
+#include<assert.h>
+
+int main()
+{
+int b;
+
+scanf("%d",&b);
+
+assert(b!=0);
+
+printf("Hii!!!!!\n");
+
+return 0;
+
+
+}

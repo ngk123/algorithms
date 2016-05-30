@@ -1,0 +1,72 @@
+#include<algorithm>
+#include<cstdio>
+using namespace std;
+
+typedef struct ap{
+int a0;
+int d0;
+}ap;
+int n,idx,k;
+int arr[23];
+ap returnAP()
+{
+	int i,j,l,diff,s,term,cnt,idxN;
+	ap tmp;
+	tmp.a0=100000001;
+	tmp.d0=2*1000000001;
+	
+	idxN=min(12,idx);
+	
+	for(i=0;i<(idxN-1);i++)
+	{
+		for(j=i+1;j<idxN;j++)
+		{			
+			if( (arr[j]-arr[i])%(j-i)==0)
+			{
+				diff=(arr[j]-arr[i])/(j-i);
+				s=arr[i]-(i*diff);
+				term=s;
+				cnt=0;
+				for(l=0;l<idx;l++)
+				{
+					if(arr[l]!=term)cnt++;
+					term=term+diff;						
+				}		
+							
+				if(cnt<=k && (s<tmp.a0 || (s==tmp.a0 && tmp.d0>diff)))
+				{
+					tmp.a0=s;
+					tmp.d0=diff;
+				}									
+			}			
+		}	
+	}	
+	return tmp;
+}
+
+int main()
+{
+	ap tmp;
+	int term, diff,i;
+	scanf("%d%d",&n,&k) ;	
+	for(i=0;i<22 ;i++)
+	{
+		scanf("%d",&arr[i]);
+		if(i+1==n)break;	
+	}
+	if(i<22)
+	idx=i+1;
+	else
+	idx=i;
+		
+	tmp=returnAP();
+	term=tmp.a0;
+	diff=tmp.d0;
+	for(i=0;i<n;i++)
+	{
+		printf("%d ",term);
+		term+=diff; 	
+	}
+	printf("\n");
+	return 0;
+}

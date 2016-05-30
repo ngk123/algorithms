@@ -1,0 +1,13 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+  int i,j;
+  j=2;
+  for(i=0;j<4;i++)
+    printf("Hello\n");
+
+
+  return 0;
+}

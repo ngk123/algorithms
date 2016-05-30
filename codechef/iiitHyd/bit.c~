@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+
+int main()
+{
+
+
+
+
+  return 0;
+}
+
+
+int bits(int a)
+{
+  int ans[4];
+  
+  ans[0]=0;
+  ans[1]=1;
+  ans[2]=2;
+  ans[3]=4;
+  if(a<=3)return ans[a];
+  temp=4;
+  i=2;
+  while(1)
+    {
+      temp=temp<<2;
+      if(temp>a)break;
+      i++;
+    }
+
+
+
+
+
+
+
+}

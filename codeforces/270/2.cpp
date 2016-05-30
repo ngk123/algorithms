@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+	int n,k,arr[2002],ans,end,i,arr2[2002];
+		
+	cin >> n >> k;
+	
+	for(i=0;i<n;i++)
+	{
+		cin >> arr2[i];	
+	}
+	
+	sort(arr2,arr2+n);
+	
+	for(i=0;i<n;i++)
+	{
+		arr[i]=arr2[n-i-1];
+		//cout << arr[i];
+	}
+	if(n<=k)
+	{
+		cout << arr[0]*2-2 << endl;
+	}
+	else
+	{
+		
+		ans=0;
+		for(i=0;i<n;i+=k)
+		{
+			ans+=(2*arr[i]-2);
+		}
+		cout << ans << endl;
+/*		if(i-k < n-1)
+		{
+			ans-=(2*arr[i-k]-2);
+			ans+=(2*arr[n-k-1]-2);
+			//ans+=(2*arr[n-1]-2);		
+		}
+		*/
+		//cout << ans << endl;	
+	}
+	
+	
+	
+
+
+
+
+	return 0;
+}

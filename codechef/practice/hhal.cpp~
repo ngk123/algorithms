@@ -1,0 +1,49 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+	int t,f,start,end,len;
+	string str;
+	
+	cin >> t;
+	
+	while(t--)
+	{
+		cin >> str;
+		
+		len=str.length();
+		
+		start=0;
+		end=len-1;
+		f=0;
+		while(start<len && start<end && end>=0)
+		{
+			cout << str[start] << " " << str[end] << endl;
+			if(str[start]!=str[end])
+			{
+				
+				f=1;
+				break;	
+			}
+			start++;
+			end--;
+		}
+		
+		
+		if(f==1)
+		{
+			cout<< "2\n";
+		}
+		else
+		{
+			cout <<"1\n";
+		}
+		
+		
+	}
+
+	return 0;
+}

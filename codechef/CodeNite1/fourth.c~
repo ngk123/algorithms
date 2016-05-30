@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+  int T,N,C[100001];
+ 
+  scanf("%d",&T);
+
+  while(T--)
+    {
+      scnaf("%d",&N);
+
+      for(i=0;i<N;i++)
+	{
+	  scanf("%d",&C[i]);
+	}
+ 
+
+    }
+
+
+
+
+  return 0;
+
+
+}

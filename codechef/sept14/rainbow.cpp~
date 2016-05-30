@@ -1,0 +1,64 @@
+#include<iostream>
+#define mod 1000000007
+using namespace std;
+typedef long long int lli;
+lli modInv(int num)
+{
+	lli base,ans;
+	int power;
+	
+	power=mod-2;
+	//cout << power << endl;
+	base=num;
+	ans=1;
+	while(power>0)
+	{
+		//cout << power << endl;
+		if(power%2==1)
+		{
+			ans=ans*base;
+			ans=ans%mod;
+		}	
+		power=power>>1;
+		
+		base=(base*base)%mod;
+	}
+	return ans;
+}
+
+
+
+int main()
+{
+	int n,r,st,i;
+	lli ans,temp;
+	cin >> n;
+	if(n<13) ans=0;
+	else if(n==13 || n==14)ans=1;
+	else
+	{
+		r=n-13;
+		r=r/2;
+		ans=7;
+		st=7;
+		for(i=2;i<=r;i++)
+		{
+			st++;
+			cout << st << "i" << i<< endl;
+			temp=modInv(i);
+			//cout << temp << endl;
+			ans=ans*st;
+			
+			ans%=mod;
+			ans=ans*temp;
+			ans=ans%mod;
+					
+		}
+		
+	}
+	
+	cout << ans << endl;
+
+
+	return 0;
+}
