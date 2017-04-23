@@ -1,0 +1,71 @@
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+vector<int> calLPS(string pattern){
+	vector<int> lpsArray(pattern.length());
+	int patLen=pattern.length();
+	int i=0,lpsTill=0;
+	lpsArray[0]=0;
+	i=1;
+	while(i<patLen){
+		if(pattern[i]==pattern[lpsTill]){
+			lpsTill++;
+			lpsArray[i]=lpsTill;
+			i++;
+		}
+		else{		
+			if(lpsTill==0){
+				lpsArray[i]=0;
+				i++;
+			}
+			else{
+				lpsTill=lpsArray[lpsTill-1];					
+			}		
+		}			
+	}	
+	return lpsArray;
+}
+
+void kmp(vector<int> lpsArray, string pattern, string text){
+	int i,j;
+	int textLen=text.length();	
+	int patLen=pattern.length();
+	i=0;j=0;	
+	while(i<textLen){
+	
+		if(pattern[j]==text[i]){
+			i++;
+			j++;
+			if(j==patLen){ j=lpsArray[j-1];   cout << " here matched : " << i-1 << endl;}
+		}else{
+			if(j>0){
+			j=lpsArray[j-1];				
+			}else{
+				i++;		
+			}		
+		}		
+	}	
+	return;
+}
+
+int main(){
+	string pattern;
+	string text;
+	cin >> text >> pattern;
+	vector<int> lpsArray(pattern.length());
+	lpsArray=calLPS(pattern);
+	
+	for(int i=0;i<pattern.length();i++){
+		cout << lpsArray[i] << " " ;	
+	
+	}
+	cout << endl;
+	
+	cout << text << endl;
+	cout << pattern << endl;
+	kmp(lpsArray,pattern,text);	
+	
+	return 0;
+}

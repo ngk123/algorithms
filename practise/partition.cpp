@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+int findMinDiff(int idx, int arr[], int sumTill, int sumTotal){
+	if(idx==0) return abs(sumTill-(sumTotal-sumTill));
+	return min(findMinDiff(idx-1, arr, sumTill+arr[idx-1], sumTotal), findMinDiff(idx-1, arr, sumTill, sumTotal));
+	
+}
+
+
+int main(){
+
+	int i,sum,arr[100],n;
+	cin >> n;
+	
+	sum = 0;
+	
+	for(i=0;i<n;i++){
+		cin >> arr[i];
+		sum += arr[i];
+	}
+
+
+	cout << sum << endl;
+
+	int ans=findMinDiff(n, arr, 0, sum);
+	
+	cout << ans << endl;
+	
+	return 0;
+}

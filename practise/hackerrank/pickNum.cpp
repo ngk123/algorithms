@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+int main(){
+	int n,t,diff,curr,prev,maxDiff,i;
+	int a[102]={0};
+	cin >> n;
+	
+	while(n--){
+		cin >> t;
+		a[t]++;	
+	}
+	
+	prev=a[0];	
+	maxDiff=-1;
+	for(i=1;i<101;i++)
+	{
+		curr=a[i];
+		diff=prev+curr;
+		if(diff>maxDiff)maxDiff=diff;
+		prev=curr;		
+	}
+	
+	cout << maxDiff << endl;
+	return 0;
+
+}

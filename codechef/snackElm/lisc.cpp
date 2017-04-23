@@ -1,0 +1,79 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+	vector<int> vi[102];
+	
+	int t,k,len,grp,temp,i,flag,maxGrp,totalGroups,numR,m;
+	
+	for(len=1;len<=100;len++)
+	{
+		
+		for(grp=1;grp<=100;grp++)
+		{
+			temp=pow(grp,len);
+			if(grp*len<=100 && temp <= 100000 )
+			vi[len].push_back(temp);		
+			else
+			break;
+		}	
+		
+		for(i=0;i<vi[len].size();i++)
+		{
+			cout << vi[len][i] << " ";
+		}
+		cout << endl;
+	}
+		
+	
+	
+	cin >> t;
+	while(t--)
+	{
+		cin >> k;	
+		flag=0;
+		for(len=100;len>=1;len--)
+		{
+			maxGrp=vi[len].size();
+			temp=k;
+			numR=0;
+			
+			for(grp=maxGrp;grp>=1;grp--)
+			{				
+				totalGroups=temp/vi[len][grp-1];
+				numR=numR+len*grp*totalGroups;		
+				temp=temp%vi[len][grp-1];		
+				if(numR>100)break;	
+				if(temp==0){flag=1; break;}
+			}
+			cout << "numR: "<< numR << endl;
+			if(flag==1)break;	
+		}
+			maxGrp=vi[len].size();
+			temp=k;
+			numR=0;
+			int start=1;
+			for(grp=maxGrp;grp>=1;grp--)
+			{				
+				totalGroups=temp/vi[len][grp-1];
+				for(i=0;i<totalGroups;i++)
+				{
+					for(j=0;j<grp;j++)
+					{
+					
+					
+					}		
+				}
+				
+				numR=numR+len*grp*totalGroups;		
+				temp=temp%vi[len][grp-1];		
+					
+				if(temp==0){flag=1; break;}
+			}		
+				
+		cout << len << endl;	
+	}
+	return 0;
+}
